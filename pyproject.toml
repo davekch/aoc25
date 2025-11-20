@@ -4,4 +4,14 @@ version = "0.1.0"
 description = "AOC solutions 2025"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "aoc",
+]
+
+[tool.uv.workspace]
+members = [
+    "aoc/utils/py",
+]
+
+[tool.uv.sources]
+aoc = { workspace = true }
