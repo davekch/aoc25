@@ -1,0 +1,7 @@
+AOC_SESSION
+*/input.txt
+
+__pycache__/
+
+# Virtual environments
+.venv
