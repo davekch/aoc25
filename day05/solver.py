@@ -27,22 +27,19 @@ def reduce_ranges(ranges: list[tuple[int, int]]):
     """
     merges all overlapping adjacent ranges until there are no more overlaps
     """
-    def _reduce_ranges(i):
-        if i + 1 == len(ranges):
-            return ranges
+    i = 0
+    while i + 1 < len(ranges):
         (a1, b1), (a2, b2) = ranges[i], ranges[i+1]
         if a1 <= a2 <= b1:
             if b2 > b1:
                 ranges[i] = (a1, b2)
                 ranges.pop(i+1)
-                return _reduce_ranges(i)
             else:
                 ranges.pop(i+1)
-                return _reduce_ranges(i)
         else:
-            return _reduce_ranges(i+1)
+            i += 1
 
-    return _reduce_ranges(0)
+    return ranges
 
 
 def solve2(data):
